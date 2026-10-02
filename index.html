@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/coffee.png" />
+    <script
+      src="https://kit.fontawesome.com/39b10a68c6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="navbar">
@@ -18,22 +23,42 @@
       <div class="navbar-menu">
         <ul>
           <li>
-            <a href="">Beranda</a>
+            <a href="#home">Beranda</a>
           </li>
           <li>
-            <a href="">Keunggulan</a>
+            <a href="#services">Keunggulan</a>
           </li>
           <li>
-            <a href="">Tentang</a>
+            <a href="#about">Tentang</a>
           </li>
           <li class="pesan">
             <a href="">Pesan</a>
           </li>
         </ul>
       </div>
+      <i class="fa-solid fa-bars" id="hamburger-icon"></i>
     </header>
+
+    <!-- navbar for mobile view -->
+    <div class="mobile-nav">
+      <i class="fa-solid fa-xmark"></i>
+      <ul>
+        <li>
+          <a href="#home">Beranda</a>
+        </li>
+        <li>
+          <a href="#services">Keunggulan</a>
+        </li>
+        <li>
+          <a href="#about">Tentang</a>
+        </li>
+        <li class="pesan">
+          <a href="">Pesan</a>
+        </li>
+      </ul>
+    </div>
     <main>
-      <section class="hero">
+      <section class="hero" id="home">
         <div class="hero-content">
           <h1 class="hero-title">
             Secangkir kopi, untuk memulai hari dengan lebih berarti.
@@ -54,7 +79,7 @@
       <section class="services">
         <h1>Kenapa ngopi di sini?</h1>
 
-        <div class="services-card-container">
+        <div class="services-card-container" id="services">
           <div class="services-card">
             <img src="assets/coffee-svgrepo-com.svg" alt="" class="card-icon" />
             <h2>Kopi dengan Karakter</h2>
@@ -89,7 +114,7 @@
           </div>
         </div>
       </section>
-      <section class="about">
+      <section class="about" id="about">
         <h1>Tentang Kami — Lebih dari Sekadar Secangkir Kopi</h1>
         <p>
           Kami percaya bahwa kopi bukan sekadar minuman, tetapi bagian dari
@@ -104,8 +129,32 @@
         </p>
       </section>
     </main>
-    <footer>
-      © 2026 Secangkir. All Rights Reserved. Instagram Facebook TikTok
+    <footer class="footer">
+      <p class="copyright">© 2026 Secangkir.</p>
+      <p class="social">
+        <a href="https://www.instagram.com/">Instagram</a
+        ><a href="https://www.tiktok.com/">TikTok</a>
+      </p>
     </footer>
   </body>
+  <script>
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const closeBtn = document.querySelector(".mobile-nav i");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav a");
+
+    hamburgerIcon.addEventListener("click", () => {
+      mobileNav.classList.toggle("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("active");
+      });
+    });
+  </script>
 </html>
